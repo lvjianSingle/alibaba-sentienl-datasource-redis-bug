@@ -1,26 +1,27 @@
-# ¹ØÓÚ¿Í»§¶Ë¼¯³Ésentinel-datasource-redisÁ¬½ÓÊı²»ÄÜÊÍ·ÅÎÊÌâ
-
-
-
-> ### ±¾ÏîÄ¿demoÓÃÓÚÑİÊ¾ÖØÏÖbug¡£
+# [å…³äºå®¢æˆ·ç«¯é›†æˆsentinel-datasource-redisè¿æ¥æ•°ä¸èƒ½é‡Šæ”¾é—®é¢˜](https://github.com/alibaba/Sentinel/issues/2075)
 
 
 
 
-
-- spring-cloud-alibaba°æ±¾£º2.2.5.RELEASE
-
-- sentinel-dashboard°æ±¾£º1.8.0
-
-- sentinel-datasource-redis°æ±¾£º1.8.0
+> ### æœ¬é¡¹ç›®demoç”¨äºæ¼”ç¤ºé‡ç°bugã€‚
 
 
 
-## bug³öÏÖ³¡¾°
+
+
+- spring-cloud-alibabaç‰ˆæœ¬ï¼š2.2.5.RELEASE
+
+- sentinel-dashboardç‰ˆæœ¬ï¼š1.8.0
+
+- sentinel-datasource-redisç‰ˆæœ¬ï¼š1.8.0
 
 
 
-- ¿Í»§¶ËÔÚÒıÓÃ`spring-cloud-starter-alibaba-sentinel`ºÍ`sentinel-datasource-redis`°ü£¬ÅäÖÃ`spring.cloud.sentinel.datasource`ÊôĞÔ
+## bugå‡ºç°åœºæ™¯
+
+
+
+- å®¢æˆ·ç«¯åœ¨å¼•ç”¨`spring-cloud-starter-alibaba-sentinel`å’Œ`sentinel-datasource-redis`åŒ…ï¼Œé…ç½®`spring.cloud.sentinel.datasource`å±æ€§
 
   ```yaml
   spring:
@@ -31,9 +32,9 @@
         eager: true
         enabled: true
         transport:
-          dashboard: 127.0.0.1:8080 # Sentinel ¿ØÖÆÌ¨µØÖ·
+          dashboard: 127.0.0.1:8080 # Sentinel æ§åˆ¶å°åœ°å€
         filter:
-          url-patterns: /** # À¹½ØÇëÇóµÄµØÖ·¡£Ä¬ÈÏÎª /*
+          url-patterns: /** # æ‹¦æˆªè¯·æ±‚çš„åœ°å€ã€‚é»˜è®¤ä¸º /*
         datasource:
           flow:
             redis:
@@ -48,7 +49,7 @@
 
 
 
-- ÒıÈë`spring-boot-starter-actuator` ²¢ÅäÖÃ`endpoints`ÊôĞÔ£¬Èç
+- å¼•å…¥`spring-boot-starter-actuator` å¹¶é…ç½®`endpoints`å±æ€§ï¼Œå¦‚
 
 ```yaml
 management:
@@ -61,11 +62,11 @@ management:
       show-details: always
 ```
 
-- ½ÓÈëspring-boot-adminÏµÍ³
+- æ¥å…¥spring-boot-adminç³»ç»Ÿ
 
-- `spring-cloud-starter-alibaba-sentinel`°üÖĞ`SentinelEndpointAutoConfiguration`ÅäÖÃÀàÉúĞ§
+- `spring-cloud-starter-alibaba-sentinel`åŒ…ä¸­`SentinelEndpointAutoConfiguration`é…ç½®ç±»ç”Ÿæ•ˆ
 
-  Ã¿´Î»ñÈ¡¶ËµãĞÅÏ¢Ê±£¬`SentinelHealthIndicator`»áÈ¥¶ÁÈ¡RedisÖĞµÄ¹æÔòÊı¾İ£¬ÔÚ»ñÈ¡ÍêÊı¾İÖ®ºó RedisµÄÁ¬½ÓÊı²»ÄÜÕı³£¹Ø±Õ£¬**²¢ÇÒËæ×ÅÊ±¼äÔö¼ÓÁ¬½ÓÊı£¬×îÖÕÈ«²¿ÔİÂúÁ¬½ÓÊı µ¼ÖÂRedis·şÎñ²»¿ÉÓÃ**¡£
+  æ¯æ¬¡è·å–ç«¯ç‚¹ä¿¡æ¯æ—¶ï¼Œ`SentinelHealthIndicator`ä¼šå»è¯»å–Redisä¸­çš„è§„åˆ™æ•°æ®ï¼Œåœ¨è·å–å®Œæ•°æ®ä¹‹å Redisçš„è¿æ¥æ•°ä¸èƒ½æ­£å¸¸å…³é—­ï¼Œ**å¹¶ä¸”éšç€æ—¶é—´å¢åŠ è¿æ¥æ•°ï¼Œæœ€ç»ˆå…¨éƒ¨æš‚æ»¡è¿æ¥æ•° å¯¼è‡´RedisæœåŠ¡ä¸å¯ç”¨**ã€‚
 
 ![image-20210309002750443](./doc/images/image-20210309002750443.png)
 
@@ -73,14 +74,14 @@ management:
 
 
 
-## ±¾demoÏîÄ¿Ê¹ÓÃ
+## æœ¬demoé¡¹ç›®ä½¿ç”¨
 
-1¡¢Æô¶¯eureka
+1ã€å¯åŠ¨eureka
 
-2¡¢Æô¶¯sentinel-dashboard£¬sentinel-dashboardÖĞÓĞÊ¹ÓÃRedis½øĞĞ¸ÄÔì£¬Ä¬ÈÏredisÅäÖÃÎª127.0.0.1:6379£¬°´ÕÕ±¾µØ×Ô¼ºµÄRedis½øĞĞÅäÖÃ¼´¿É¡£
+2ã€å¯åŠ¨sentinel-dashboardï¼Œsentinel-dashboardä¸­æœ‰ä½¿ç”¨Redisè¿›è¡Œæ”¹é€ ï¼Œé»˜è®¤redisé…ç½®ä¸º127.0.0.1:6379ï¼ŒæŒ‰ç…§æœ¬åœ°è‡ªå·±çš„Redisè¿›è¡Œé…ç½®å³å¯ã€‚
 
-3¡¢Æô¶¯spring-boot-admin
+3ã€å¯åŠ¨spring-boot-admin
 
-4¡¢Æô¶¯order-demo¡¢product-demo
+4ã€å¯åŠ¨order-demoã€product-demo
 
-5¡¢½øÈëRedis·şÎñ¶ËÊ¹ÓÃ`info clients`ÃüÁî¹Û²ìÁ¬½ÓÊı¡£
+5ã€è¿›å…¥RedisæœåŠ¡ç«¯ä½¿ç”¨`info clients`å‘½ä»¤è§‚å¯Ÿè¿æ¥æ•°ã€‚
