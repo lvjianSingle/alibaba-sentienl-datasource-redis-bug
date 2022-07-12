@@ -66,7 +66,7 @@ management:
 
 - `spring-cloud-starter-alibaba-sentinel`包中`SentinelEndpointAutoConfiguration`配置类生效
 
-  每次获取端点信息时，`SentinelHealthIndicator`会去读取Redis中的规则数据，在获取完数据之后 Redis的连接数不能正常关闭，**并且随着时间增加连接数，最终全部暂满连接数 导致Redis服务不可用**。
+  每次获取端点信息时，`SentinelHealthIndicator`会去读取Redis中的规则数据，在获取完数据之后 Redis的连接数不能正常关闭，**并且随着时间增加连接数，最终全部占满连接数 导致Redis服务不可用**。
 
 ![image-20210309002750443](./doc/images/image-20210309002750443.png)
 
